@@ -20,5 +20,11 @@ module.exports = {
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
+    'space-before-function-paren': 'off',
+    'no-unused-vars': 'off',
+    'camelcase': 'off',
+    'no-tabs':'off',
+    'no-mixed-spaces-and-tabs':'off',
+    'no-useless-constructor':'off'
   },
 };
