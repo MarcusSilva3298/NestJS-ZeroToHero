@@ -14,16 +14,12 @@ export class JwTStrategy extends PassportStrategy(Strategy) {
   ) {
     super({
       secretOrKey: 'topSecret51',
-      jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken
+      jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken()
     })
   }
 
   async validate({ username }: JwtPayload): Promise<User> {
-    console.log(username)
-
     const user: User = await this.usersRepository.findOne({ username })
-
-    console.log(user)
 
     if (!user) {
       console.log('test')
