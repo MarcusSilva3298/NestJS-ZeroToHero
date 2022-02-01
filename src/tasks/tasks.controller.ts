@@ -10,6 +10,8 @@ import {
   UseGuards
 } from '@nestjs/common'
 import { AuthGuard } from '@nestjs/passport'
+import { GetUser } from 'src/auth/get-user.decorator'
+import { User } from 'src/auth/user.entity'
 import { CreateTaskDTO } from './dtos/create-task.dto'
 import { GetTasksFilterDTO } from './dtos/get-tasks-filter.dto'
 import { UpdateTaskStatusDTO } from './dtos/update-task-status.dto'
@@ -22,30 +24,37 @@ export class TasksController {
   constructor(private tasksService: TasksService) {}
 
   @Get()
-  getTasks(@Query() filters: GetTasksFilterDTO): Promise<Task[]> {
-    return this.tasksService.getTasks(filters)
+  getTasks(
+    @Query() filters: GetTasksFilterDTO,
+    @GetUser() user: User
+  ): Promise<Task[]> {
+    return this.tasksService.getTasks(filters, user)
   }
 
   @Get(':id')
-  readTask(@Param('id') id: string): Promise<Task> {
-    return this.tasksService.readTask(id)
+  readTask(@Param('id') id: string, @GetUser() user: User): Promise<Task> {
+    return this.tasksService.readTask(id, user)
   }
 
   @Post()
-  createTask(@Body() createTaskDTO: CreateTaskDTO): Promise<Task> {
-    return this.tasksService.createTask(createTaskDTO)
+  createTask(
+    @Body() createTaskDTO: CreateTaskDTO,
+    @GetUser() user: User
+  ): Promise<Task> {
+    return this.tasksService.createTask(createTaskDTO, user)
   }
 
   @Delete(':id')
-  deleteTask(@Param('id') id: string): Promise<Task> {
-    return this.tasksService.deleteTask(id)
+  deleteTask(@Param('id') id: string, @GetUser() user: User): Promise<Task> {
+    return this.tasksService.deleteTask(id, user)
   }
 
   @Patch(':id/status')
   updateTaskStatus(
     @Param('id') id: string,
-    @Body() { status }: UpdateTaskStatusDTO
+    @Body() { status }: UpdateTaskStatusDTO,
+    @GetUser() user: User
   ): Promise<Task> {
-    return this.tasksService.updateTaskStatus(id, status)
+    return this.tasksService.updateTaskStatus(id, status, user)
   }
 }
