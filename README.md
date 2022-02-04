@@ -11,7 +11,13 @@ Task Manager
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript project following the [NestJS Zero To Hero](https://www.udemy.com/course/nestjs-zero-to-hero/) Udemy course. This project consists in a ToDo RESTful API with Authentication with JWT, semi-Authorization, Validation, Error Handling, Data Persistence with TypeORM in Postgres and Unit Testing with Jest.
+[Nest](https://github.com/nestjs/nest) framework TypeScript project following the [NestJS Zero To Hero](https://www.udemy.com/course/nestjs-zero-to-hero/) Udemy course. This project consists in a ToDo RESTful API with:
+*  Authentication with JWT and semi-Authorization.
+*  Validation.
+*  Error Handling.
+*  Data Persistence with TypeORM in Postgres.
+*  Unit Testing with Jest.
+
 
 This App is deployed on Heroku: https://task-management-marcussilva329.herokuapp.com/api/.
 
