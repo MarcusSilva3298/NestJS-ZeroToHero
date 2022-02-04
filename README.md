@@ -23,7 +23,7 @@ This App is deployed on Heroku: https://task-management-marcussilva329.herokuapp
 
 ## Running the app remotely
 
-As this app is available on Heroku it can be used using the Swagger documentation endpoint written above or in any REST Client (Insomnia, Postman, etc).
+As this app is available on Heroku it can be used in the Swagger documentation endpoint written above or in any REST Client (Insomnia, Postman, etc).
 
 ## Running the app localy
 
